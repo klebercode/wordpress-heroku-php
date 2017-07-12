@@ -60,16 +60,16 @@ if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 	define("DISABLE_WP_CRON", getenv("DISABLE_WP_CRON") == "true");
 
 	/** Disable automatic updates, they won't survive restarting and scaling dynos */
-	define("AUTOMATIC_UPDATER_DISABLED", true );
+	define("AUTOMATIC_UPDATER_DISABLED", getenv("AUTOMATIC_UPDATER_DISABLED") == "true" );
 
 	/**  Prevent File Modifications */
-	define ("DISALLOW_FILE_EDIT", true );
+	define ("DISALLOW_FILE_EDIT", getenv("DISALLOW_FILE_EDIT") == "true" );
 
 	/**  Prevent installation of themes or plugins */
-	define("DISALLOW_FILE_MODS", true );
+	define("DISALLOW_FILE_MODS", getenv("DISALLOW_FILE_MODS") == "true" );
 
 	/** For developers: WordPress debugging mode. */
-	define("WP_DEBUG", false);
+	define("WP_DEBUG", getenv("WP_DEBUG") == "false");
 
 }
 
@@ -112,7 +112,7 @@ $table_prefix  = "wp_";
  * de_DE.mo to wp-content/languages and set WPLANG to "de_DE" to enable German
  * language support.
  */
-define("WPLANG", "");
+define("WPLANG", "pt_BR");
 
 /**
  * AWS Plugin Auth Keys
